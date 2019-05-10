@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>max-height应用在展开收起效果 | 一阵风</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript,前端性能优化,angular、react">
+  
+
+  <meta name="description" content="前端css属性中max-height我们使用的并不多，今天给大家分享一个max-height属性实现展开收起效果。 效果图如下： 话不多说直接上代码。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="max-height应用在展开收起效果">
+<meta property="og:url" content="http://yoursite.com/2018/10/24/max-height应用在展开收起效果/index.html">
+<meta property="og:site_name" content="一阵风">
+<meta property="og:description" content="前端css属性中max-height我们使用的并不多，今天给大家分享一个max-height属性实现展开收起效果。 效果图如下： 话不多说直接上代码。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666">
+<meta property="og:locale" content="js">
+<meta property="og:image" content="http://yoursite.com/2018/10/24/max-height应用在展开收起效果/max-height.png">
+<meta property="og:updated_time" content="2019-05-10T03:58:18.799Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="max-height应用在展开收起效果">
+<meta name="twitter:description" content="前端css属性中max-height我们使用的并不多，今天给大家分享一个max-height属性实现展开收起效果。 效果图如下： 话不多说直接上代码。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/24/max-height应用在展开收起效果/max-height.png">
+
+  
+
+  
+    <link rel="icon" href="/images/avatar.jpeg">
+  
+
+  <link href="/css/styles.css?v=c114cben" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-max-height应用在展开收起效果" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">max-height应用在展开收起效果</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.10.24</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>tom</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.forsigner.com/2018/10/24/max-height应用在展开收起效果/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>前端css属性中max-height我们使用的并不多，今天给大家分享一个max-height属性实现展开收起效果。</p>
+<p>效果图如下：<br><img src="/2018/10/24/max-height应用在展开收起效果/max-height.png" title="效果图"></p>
+<p>话不多说直接上代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&lt;--STYLE部分--&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    body,ul,div,li,h3&#123;</span><br><span class="line">    	margin: <span class="number">0</span>;</span><br><span class="line">    	padding: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li&#123;</span><br><span class="line">        border-bottom:1px solid #eee;</span><br><span class="line">        position: relative;</span><br><span class="line">    	line-height: <span class="number">40</span>px;</span><br><span class="line">    	background-color: #fff;</span><br><span class="line">    	max-height: <span class="number">60</span>px;</span><br><span class="line">    	overflow: hidden;</span><br><span class="line">    	transition: max-height <span class="number">0.6</span>s;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li.active&#123;</span><br><span class="line">    	max-height: <span class="number">2000</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li&gt;h3&#123;</span><br><span class="line">    	padding:<span class="number">10</span>px <span class="number">15</span>px;</span><br><span class="line">    	width: <span class="number">100</span>%;</span><br><span class="line">    	background: #f0f0f0;</span><br><span class="line">    	color: #333;</span><br><span class="line">    	font-weight: <span class="number">400</span>;</span><br><span class="line">    	line-height: <span class="number">39</span>px;</span><br><span class="line">    	border-top: 1px solid #dddddd;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li.active&gt;h3&#123;</span><br><span class="line">    	color: #000;</span><br><span class="line">    	font-weight: <span class="number">500</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li li&#123;</span><br><span class="line">    	padding: <span class="number">0</span> <span class="number">15</span>px;</span><br><span class="line">    	line-height: <span class="number">34</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    .title&#123;</span><br><span class="line">        color: #333333;</span><br><span class="line">        font-weight: <span class="number">500</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li:before&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        right:<span class="number">20</span>px;</span><br><span class="line">        content: <span class="string">''</span>;</span><br><span class="line">        height: <span class="number">10</span>px;</span><br><span class="line">        width: <span class="number">10</span>px;</span><br><span class="line">        border-width: <span class="number">2</span>px <span class="number">2</span>px <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">        border-color: #A7B5CD;</span><br><span class="line">        border-style: solid;</span><br><span class="line">        top: <span class="number">20</span>px;</span><br><span class="line">        margin-top: <span class="number">6</span>px;</span><br><span class="line">        transform: matrix(<span class="number">0.71</span>, <span class="number">0.71</span>, <span class="number">-0.71</span>, <span class="number">0.71</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        vertical-align: middle;</span><br><span class="line">        transition: transform <span class="number">0.4</span>s;</span><br><span class="line">    &#125;</span><br><span class="line">    body&gt;ul&gt;li.active:before&#123;</span><br><span class="line">        -webkit-transform: translate(<span class="number">0</span>,<span class="number">-50</span>%) rotate(<span class="number">135</span>deg);</span><br><span class="line">        transform: translate(<span class="number">0</span>,<span class="number">-50</span>%) rotate(<span class="number">135</span>deg);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;--HTML部分--&gt;</span></span><br><span class="line"><span class="regexp">&lt;ul class="help_newsGuide"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;</span></span><br><span class="line"><span class="regexp">	    &lt;h3 onclick="showHide(this)"&gt;다운로드는 어떻게하나요?&lt;/</span>h3&gt;</span><br><span class="line">	    &lt;ul&gt;</span><br><span class="line">		    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"title"</span>&gt;안드로이드는 어떻게 다운로드하나요?&lt;/li&gt;</span><br><span class="line">		    &lt;li&gt;<span class="number">1.</span> Google Play 에서 큐바오 검색 후 다운로드&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">		    &lt;li&gt;2. Qbao 공식 홈페이지 qbao.fund 에서 , QR코드 스캔하여 다운로드 하기&lt;/</span>li&gt;</span><br><span class="line">		    &lt;li&gt;<span class="number">3.</span> 링크 클릭 후 다운 다운받기 &lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">		    &lt;!--&lt;li&gt;3. 링크 클릭 후 다운 다운받기 https:/</span><span class="regexp">/www.pgyer.com/</span>qbaoandroid&lt;<span class="regexp">/li&gt;--&gt;</span></span><br><span class="line"><span class="regexp">		    &lt;li&gt;4. 중국 내 사용자는 주요 안드로이드 마켓에서 Qbao 검색 후 다운로드 가능&lt;/</span>li&gt;</span><br><span class="line">		    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"title"</span>&gt;IOS는 어떻게 다운로드하나요?&lt;/li&gt;</span><br><span class="line">		    &lt;li&gt;<span class="number">1.</span> App store에서 큐바오 검색 후 다운로드&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">	    &lt;/u</span>l&gt;</span><br><span class="line">	&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"></span><br><span class="line">&lt;--JS部分--&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showHide</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(a.parentNode.className === <span class="string">'active'</span>)&#123;</span><br><span class="line">                a.parentNode.className = <span class="string">''</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                a.parentNode.className = <span class="string">'active'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>“展开收起”无疑是我们最常见的前端效果之一，一般的做法是采用js控制元素的display属性。虽然可以实现，但是希望元素展开收起时能有明显的高度滑动效果。传统实现可以使用 jQuery 的 slideUp()/ slideDown()方法，但是，在移动端，因为 CSS3 动画支持良好，所以移动端的 JavaScript 框架都是没有动画模块的。此时，使用 CSS 实现动画就成了最佳的技术选型。 我们的第一反应就是使用 height + overflow:hidden 实现。但是，很多时候，我们展开的元素内容是动态的，换句话说高度是不固定的，因此，height使用的值是默认的 auto，应该都知道的 auto 是个关键字值，并非数值，正如 height:100%的 100%无法和 auto相计算一样，从 0px 到 auto 也是无法计算的，因此无法形成过渡或动画效果。 </p>
+<p>但是如果使用“max-height”属性的话，就不会有这个问题，我们只需要展开时把max-height设置为一个足够大的值。当展开的dom高度小于这个max-height时，元素高度就是内容撑开的高度。</p>
+<p><em>缺点：</em></p>
+<p>​    如果将max-height设置的太大的话，动画会产生一定的延迟，但是如果我们取一个合适的max-height值得话，用户几乎察觉不到。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持mawencai</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt>
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.jpg" alt>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/10/24/前端中http协议/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/05/10/ES6(1)/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+
+   
+      <div class="git"></div>
+   
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2018/10/24/max-height应用在展开收起效果/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
