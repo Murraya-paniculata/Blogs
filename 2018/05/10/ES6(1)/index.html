@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>ES6学习笔记(一) | 一阵风</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript,前端性能优化,angular、react">
+  
+
+  <meta name="description" content="ES6已经是目前前端领域必备的知识，他大大丰富了js的语言体系，新加的一些API也十分强大，作为前端工程师我们应该掌握它!  一、解构赋值1.举个栗子123let [d,e,f] = [12,10,2,5];console.log(d,e,f); //12,10,2这是最简单的用法，要求左边的和右边的形式一致，告别之前ES5中通过索引赋值的方式，简单明了 对象中也同样适用 1234567let j">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记(一)">
+<meta property="og:url" content="http://yoursite.com/2018/05/10/ES6(1)/index.html">
+<meta property="og:site_name" content="一阵风">
+<meta property="og:description" content="ES6已经是目前前端领域必备的知识，他大大丰富了js的语言体系，新加的一些API也十分强大，作为前端工程师我们应该掌握它!  一、解构赋值1.举个栗子123let [d,e,f] = [12,10,2,5];console.log(d,e,f); //12,10,2这是最简单的用法，要求左边的和右边的形式一致，告别之前ES5中通过索引赋值的方式，简单明了 对象中也同样适用 1234567let j">
+<meta property="og:locale" content="js">
+<meta property="og:updated_time" content="2019-05-10T06:44:40.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6学习笔记(一)">
+<meta name="twitter:description" content="ES6已经是目前前端领域必备的知识，他大大丰富了js的语言体系，新加的一些API也十分强大，作为前端工程师我们应该掌握它!  一、解构赋值1.举个栗子123let [d,e,f] = [12,10,2,5];console.log(d,e,f); //12,10,2这是最简单的用法，要求左边的和右边的形式一致，告别之前ES5中通过索引赋值的方式，简单明了 对象中也同样适用 1234567let j">
+
+  
+
+  
+    <link rel="icon" href="/images/avatar.jpeg">
+  
+
+  <link href="/css/styles.css?v=c114cben" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、解构赋值"><span class="toc-text">一、解构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-举个栗子"><span class="toc-text">1.举个栗子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-解构赋值的一些用法"><span class="toc-text">2.解构赋值的一些用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可以给解构的值取别名"><span class="toc-text">可以给解构的值取别名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解构赋值可以给默认值"><span class="toc-text">解构赋值可以给默认值</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效"><span class="toc-text">当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合并数组"><span class="toc-text">合并数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#在函数中使用"><span class="toc-text">在函数中使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、箭头函数"><span class="toc-text">四、箭头函数</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-ES6(1)" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">ES6学习笔记(一)</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.05.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>tom</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.forsigner.com/2018/05/10/ES6(1)/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <div align="center">ES6已经是目前前端领域必备的知识，他大大丰富了js的语言体系，新加的一些API也十分强大，作为前端工程师我们应该掌握它!</div>
+
+<h3 id="一、解构赋值"><a href="#一、解构赋值" class="headerlink" title="一、解构赋值"></a>一、解构赋值</h3><h4 id="1-举个栗子"><a href="#1-举个栗子" class="headerlink" title="1.举个栗子"></a>1.举个栗子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let [d,e,f] = [12,10,2,5];</span><br><span class="line">console.log(d,e,f); //12,10,2</span><br><span class="line">这是最简单的用法，要求左边的和右边的形式一致，告别之前ES5中通过索引赋值的方式，简单明了</span><br></pre></td></tr></table></figure>
+<p>对象中也同样适用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let json = &#123;</span><br><span class="line">   name: &apos;tom&apos;,</span><br><span class="line">   age: 18,</span><br><span class="line">   job: &apos;前端&apos;</span><br><span class="line">   &#125;;</span><br><span class="line">let &#123;name,age,job&#125; = json;</span><br><span class="line">console.log(name,age,job); //tom,18,&apos;前端&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="2-解构赋值的一些用法"><a href="#2-解构赋值的一些用法" class="headerlink" title="2.解构赋值的一些用法"></a>2.解构赋值的一些用法</h4><ul>
+<li><h5 id="可以给解构的值取别名"><a href="#可以给解构的值取别名" class="headerlink" title="可以给解构的值取别名"></a>可以给解构的值取别名</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> json = &#123;</span><br><span class="line">    name: <span class="string">'tom'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    job: <span class="string">'前端'</span></span><br><span class="line"> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:a,<span class="attr">age</span>:b,<span class="attr">job</span>:c&#125; = json;</span><br><span class="line"><span class="built_in">console</span>.log(a,b,c); <span class="comment">//tom,18,'前端'</span></span><br><span class="line"></span><br><span class="line">* 这里将name、age、job分别别名a、b、c</span><br><span class="line">*</span><br><span class="line">* 用途：后台返回的数据与前端定好的字段名不一致</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="解构赋值可以给默认值"><a href="#解构赋值可以给默认值" class="headerlink" title="解构赋值可以给默认值"></a>解构赋值可以给默认值</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> json = &#123;</span><br><span class="line">    name: <span class="string">'tom'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    job: <span class="string">'前端'</span></span><br><span class="line"> &#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;name,age,job,ff=<span class="string">"暂无数据"</span>&#125; = json;</span><br><span class="line"><span class="built_in">console</span>.log(name,age,job,ff);<span class="comment">// tom 18 前端 暂无数据</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><em>特别注意</em>：</p>
+<h6 id="当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效"><a href="#当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效" class="headerlink" title="当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效"></a>当右边的值为null时，这是，默认值无效，只有undefined、以及未定义时默认值才会有效</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let json = &#123;</span><br><span class="line">    name: &apos;tom&apos;,</span><br><span class="line">    age: 18,</span><br><span class="line">    job: &apos;前端&apos;,</span><br><span class="line">    time: null</span><br><span class="line">&#125;;</span><br><span class="line">let &#123;name,age,job,time=&quot;暂无数据&quot;&#125; = json;</span><br><span class="line">console.log(name,age,job,time);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>#####交换两个数的位置</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a=<span class="number">9</span>,s=<span class="number">89</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a,s);</span><br><span class="line">[a,s]=[s,a];</span><br><span class="line"><span class="built_in">console</span>.log(a,s);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h5 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h5><p>这个在操作数据时用的非常频繁</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dd = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">12</span>,<span class="number">12</span>];</span><br><span class="line"><span class="keyword">let</span> ff = [<span class="number">323</span>,<span class="number">3</span>,<span class="number">21</span>,<span class="number">12</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(dd.concat(ff),dd);<span class="comment">//ES5的做法，concat不改变原数组</span></span><br><span class="line"><span class="built_in">console</span>.log([...dd,...ff]) <span class="comment">//ES6的做法</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="在函数中使用"><a href="#在函数中使用" class="headerlink" title="在函数中使用"></a>在函数中使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getPos() &#123;</span><br><span class="line">//XXX</span><br><span class="line">    return &#123;</span><br><span class="line">    left: 10,</span><br><span class="line">    top: 20</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let &#123;left,top&#125; = getPos();</span><br><span class="line">console.log(left,top);//10,20</span><br></pre></td></tr></table></figure>
+<p>函数传参时的一些用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> function show(&#123;a=&apos;默认值1&apos;,b=&apos;默认值&apos;&#125;)&#123;</span><br><span class="line">  	console.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line">  show(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###二、字符串模板</p>
+<ul>
+<li>#####常见用法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name=<span class="string">'tom'</span>;</span><br><span class="line"><span class="keyword">let</span> age=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">let</span> info=<span class="string">'此人姓名:'</span>+name+<span class="string">'年龄:'</span>+age;</span><br><span class="line"><span class="comment">//ES5的做法，如果变量很多的时候，这种方法将十分粗糙</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6的做法</span></span><br><span class="line"><span class="keyword">let</span> name=<span class="string">'tom'</span>;</span><br><span class="line"><span class="keyword">let</span> age=<span class="number">18</span>;</span><br><span class="line"><span class="keyword">let</span> info = <span class="string">`此人姓名：<span class="subst">$&#123;name&#125;</span>,年龄：<span class="subst">$&#123;age&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(info);</span><br></pre></td></tr></table></figure>
+<p>以上的这个栗子不是很复杂，所以我们还不能深切体会到<em>字符串模板</em>的优越性。让我们再看看下面这个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;&lt;/ul&gt;</span><br><span class="line">let data = [</span><br><span class="line">    &#123;title: &apos;这是新闻的标题1&apos;,read: 1100&#125;,</span><br><span class="line">    &#123;title: &apos;这是新闻的标题2&apos;,read: 2100&#125;,</span><br><span class="line">    &#123;title: &apos;这是新闻的标题3&apos;,read: 3100&#125;,</span><br><span class="line">    &#123;title: &apos;这是新闻的标题4&apos;,read: 4100&#125;,</span><br><span class="line">    &#123;title: &apos;这是新闻的标题5&apos;,read: 5100&#125;,</span><br><span class="line">    &#123;title: &apos;这是新闻的标题6&apos;,read: 6100&#125;</span><br><span class="line">];</span><br><span class="line">//现在我们想循环这个数组，生成一个新闻列表，使用 *字符串模板* 就十分方便</span><br><span class="line">let ul1 = document.querySelector(&apos;#ul1&apos;);</span><br><span class="line">for(let i=0;i&lt;data.length;i++)&#123;</span><br><span class="line">    let li = document.createElement(&apos;li&apos;);</span><br><span class="line">    li.innerHTML = `&lt;span&gt;$&#123;data[i].title&#125;&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;阅读人数：$&#123;data[i].read&#125;&lt;/span&gt;</span><br><span class="line">    &lt;a href=&quot;javascript:;&quot;&gt;详情&lt;/a&gt;`;</span><br><span class="line">    ul1.appendChild(li);</span><br><span class="line">&#125;</span><br><span class="line">这样的好处是结构清晰，不用反复使用单引号和双引号，看得人都要崩溃😖；而是不必写成一行，可以根据个人习惯随意换行</span><br></pre></td></tr></table></figure>
+<p>###三、字符串查找(了解)</p>
+<p>关于字符串，ES6新增了一些方法，下面和ES5比较介绍一下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String.indexOf() VS String.includes()</span></span><br><span class="line"><span class="comment">//之前Es5如果要判断一段字符串是否包含有些特定的字符串，我们会使用indexof()，具体这么操作,这个是返回的索引</span></span><br><span class="line"><span class="keyword">let</span> aa = <span class="string">'apple banana pear'</span>;</span><br><span class="line"><span class="keyword">if</span>(aa.indexOf(<span class="string">'banana'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'存在'</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'不存在'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//现在Es6中新增了includes('target Str'),直接返回布尔值</span></span><br><span class="line"><span class="built_in">console</span>.log(aa.includes(<span class="string">'banana1'</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'--检测以XXX开头--startWith'</span>);</span><br><span class="line"><span class="keyword">let</span> http = <span class="string">'http://localhost:8080/a.png'</span>;</span><br><span class="line"><span class="keyword">let</span> https = <span class="string">'https://localhost:8084/b.jpg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(http.startsWith(<span class="string">'https'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(https.startsWith(<span class="string">'https'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'--检测以XXX结尾--endWith'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(http.endsWith(<span class="string">'jpg'</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(https.endsWith(<span class="string">'jpg'</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'repeat("重复次数")----一般用于造假数据'</span>);</span><br><span class="line"><span class="keyword">let</span> sd = <span class="string">'好好学习'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(sd.repeat(<span class="number">100</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'字符串填充---padStart()向前填充---padEnd---向后填充'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sd.padStart(<span class="number">5</span>,<span class="string">'2'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(sd.padEnd(<span class="number">5</span>,<span class="string">'2'</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="四、箭头函数"><a href="#四、箭头函数" class="headerlink" title="四、箭头函数"></a>四、箭头函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ES5</span><br><span class="line">function aa(abc)&#123;</span><br><span class="line">    xxxx</span><br><span class="line">    return xxx</span><br><span class="line">&#125;</span><br><span class="line">ES6</span><br><span class="line">abc=&gt;&#123;</span><br><span class="line">    return xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 注意点：</span><br><span class="line">* 1.普通函数中，this指向运行这个函数的对象，一般指向window对象，但是在箭头函数中this指向定义这个函数的对象。</span><br><span class="line">* 2.在箭头函数中，没有arguments对象，一般用reset扩展运算符代替</span><br><span class="line">* 3.箭头函数不能当做构造函数</span><br></pre></td></tr></table></figure>
+<p><em>我还会回来的…(</em>^▽^<em>)</em></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持mawencai</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt>
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.jpg" alt>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="hide pull-left" href="/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/10/24/前端中http协议/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+
+   
+      <div class="git"></div>
+   
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2018/05/10/ES6(1)/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
